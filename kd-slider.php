@@ -79,7 +79,19 @@ if(!class_exists ('KD_Slider')){
            }
 
            public static function uninstall(){
-                // empty we dont have anything to delete here
+                delete_option('kd_slider_options');
+
+                $posts = get_posts(
+                    array (
+                        'post_type' => 'kd-slider',
+                        'number_posts' => -1,
+                        'post_status' => 'any'
+                    )
+                );
+
+                foreach($posts as $post){
+                    wp_delete_post($post -> ID, true);
+                }
            }
            
            public function add_menu() {
