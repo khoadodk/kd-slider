@@ -25,6 +25,10 @@ if(! class_exists('KD_Slider_Shortcode')){
             // Insert a customized code into HTML element
             ob_start();
             require( KD_SLIDER_PATH . 'views/kd-slider_shortcode.php');
+            wp_enqueue_script('kd-slider-main-jq');
+            wp_enqueue_script('kd-slider-options-js');
+            wp_enqueue_style('kd-slider-main-css');
+            wp_enqueue_style('kd-slider-style-css');
             return ob_get_clean();
         }
     }

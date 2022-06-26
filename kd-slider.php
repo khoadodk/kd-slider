@@ -46,12 +46,17 @@ if(!class_exists ('KD_Slider')){
                 // Custom Post for slider
                require_once( KD_SLIDER_PATH . 'post-types/class.kd-slider-cpt.php' );// 
                $KD_Slider_Post_Type = new KD_Slider_Post_Type();
+
                 // Admin dashboard setting for slider
                require_once( KD_SLIDER_PATH . 'class.kd-slider-settings.php' );
                 $KD_Slider_Settings = new KD_Slider_Settings();
+
                 // Slider shortcode
                require_once( KD_SLIDER_PATH . 'shortcodes/class.kd-slider-shortcode.php' );
                $KD_Slider_Shortcode = new KD_Slider_Shortcode();
+
+                //  Enqueue Scripts
+                add_action('wp_enqueue_scripts', array($this, 'register_scripts'), 999);
            }
 
            //define a constant variable that contains the plugin dir path
@@ -109,6 +114,13 @@ if(!class_exists ('KD_Slider')){
                 
                 require( KD_SLIDER_PATH . 'views/settings-page.php');
            }
+
+           public function register_scripts(){
+            wp_register_script('kd-slider-main-jq', KD_SLIDER_URL .'vendor/flexslider/jquery.flexslider-min.js', array('jquery'), KD_SLIDER_VERSION, true);
+            wp_register_script('kd-slider-options-js', KD_SLIDER_URL .'vendor/flexslider/flexslider.js', array('jquery'), KD_SLIDER_VERSION, true);
+            wp_register_style('kd-slider-main-css', KD_SLIDER_URL .'vendor/flexslider/flexslider.css', array(), KD_SLIDER_VERSION, 'all');
+            wp_register_style('kd-slider-style-css', KD_SLIDER_URL .'assets/css/frontend.css', array(), KD_SLIDER_VERSION, 'all');
+        }
     }
 }
 

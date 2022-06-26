@@ -67,7 +67,8 @@ if( ! class_exists( 'KD_Slider_Settings' )){
                 array(
                     'items' => array(
                         'style-1',
-                        'style-2'
+                        'style-2',
+                        'style-3'
                     ),
                     'label_for' => 'kd_slider_style'
                 )
