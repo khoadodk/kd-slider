@@ -15,6 +15,10 @@
 ![Home Page](screenshot.png 'Home Page')
 
 
+## How to use
+
+- Download and unzip it to your WP plugin file
+
 
 ## Built With
 

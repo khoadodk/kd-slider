@@ -99,3 +99,10 @@
     width: 50px;
     right:0;
 }
+
+@media only screen and (max-width: 600px){
+    .flex-direction-nav a.flex-prev,
+    .flex-direction-nav a.flex-next { 
+        display: none !important;
+    }
+}
