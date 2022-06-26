@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: KD Slider
- * Plugin URI: https://khoado.dev
+ * Plugin URI: https://www.wordpress.org/kd-slider
  * Description: My custom slider
  * Version: 1.0
  * Requires at least: 5.0
@@ -43,17 +43,20 @@ if(!class_exists ('KD_Slider')){
                 // Add menu to admin bar
                 add_action('admin_menu', array($this, 'add_menu'));
 
+                // Custom Post for slider
                require_once( KD_SLIDER_PATH . 'post-types/class.kd-slider-cpt.php' );// 
                $KD_Slider_Post_Type = new KD_Slider_Post_Type();
-
+                // Admin dashboard setting for slider
                require_once( KD_SLIDER_PATH . 'class.kd-slider-settings.php' );
                 $KD_Slider_Settings = new KD_Slider_Settings();
+                // Slider shortcode
+               require_once( KD_SLIDER_PATH . 'shortcodes/class.kd-slider-shortcode.php' );
+               $KD_Slider_Shortcode = new KD_Slider_Shortcode();
            }
 
-
-
+           //define a constant variable that contains the plugin dir path
            public function define_constants(){
-              define ('KD_SLIDER_PATH',plugin_dir_path( __FILE__)) ; //define a constant variable that contains the plugin dir path
+              define ('KD_SLIDER_PATH',plugin_dir_path( __FILE__)) ; 
               define ('KD_SLIDER_URL',plugin_dir_url( __FILE__)) ; 
               define ('KD_SLIDER_VERSION','1.0.0') ; 
            }

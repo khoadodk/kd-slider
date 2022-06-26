@@ -99,6 +99,7 @@ if( ! class_exists( 'KD_Slider_Settings' )){
                     name="kd_slider_options[kd_slider_bullets]"
                     id="kd_slider_bullets"
                     value="1"
+                    
                     <?php 
                         if( isset( self::$options['kd_slider_bullets'] ) ){
                             checked( "1", self::$options['kd_slider_bullets'], true );
@@ -129,7 +130,7 @@ if( ! class_exists( 'KD_Slider_Settings' )){
             </select>
             <?php
         }
-
+        // Form Validation
         public function kd_slider_validate( $input ){
             $new_input = array();
             foreach( $input as $key => $value ){
