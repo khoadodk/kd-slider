@@ -40,6 +40,9 @@ if(!class_exists ('KD_Slider')){
            {
                $this->define_constants(); 
 
+                // Bring functions.php in
+                require_once( KD_SLIDER_PATH . 'functions/functions.php');
+
                 // Add menu to admin bar
                 add_action('admin_menu', array($this, 'add_menu'));
 
@@ -117,7 +120,6 @@ if(!class_exists ('KD_Slider')){
 
            public function register_scripts(){
             wp_register_script('kd-slider-main-jq', KD_SLIDER_URL .'vendor/flexslider/jquery.flexslider-min.js', array('jquery'), KD_SLIDER_VERSION, true);
-            wp_register_script('kd-slider-options-js', KD_SLIDER_URL .'vendor/flexslider/flexslider.js', array('jquery'), KD_SLIDER_VERSION, true);
             wp_register_style('kd-slider-main-css', KD_SLIDER_URL .'vendor/flexslider/flexslider.css', array(), KD_SLIDER_VERSION, 'all');
             wp_register_style('kd-slider-style-css', KD_SLIDER_URL .'assets/css/frontend.css', array(), KD_SLIDER_VERSION, 'all');
         }

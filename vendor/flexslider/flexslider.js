@@ -2,8 +2,8 @@ jQuery(window).load(function() {
     jQuery('.flexslider').flexslider({
         animation: 'slide',
         touch: true,
-        directionNav: false,
+        directionNav: true, 
         smoothHeight: true,
-        controlNav: true
+        controlNav: SLIDER_OPTIONS.controlNav
     });
 });
